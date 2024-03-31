@@ -6,8 +6,7 @@ module assetdb::assetdb {
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
 
-    /// An example NFT that can be minted by anybody
-    struct DevNetNFT has key, store {
+    struct BaseNFT has key, store {
         id: UID,
         name: string::String,
         description: string::String,
@@ -40,17 +39,17 @@ module assetdb::assetdb {
     // ===== Public view functions =====
 
     /// Get the NFT's `name`
-    public fun name(nft: &DevNetNFT): &string::String {
+    public fun name(nft: &BaseNFT): &string::String {
         &nft.name
     }
 
     /// Get the NFT's `description`
-    public fun description(nft: &DevNetNFT): &string::String {
+    public fun description(nft: &BaseNFT): &string::String {
         &nft.description
     }
 
     /// Get the NFT's `url`
-    public fun url(nft: &DevNetNFT): &Url {
+    public fun url(nft: &BaseNFT): &Url {
         &nft.url
     }
 
@@ -64,7 +63,7 @@ module assetdb::assetdb {
         ctx: &mut TxContext
     ) {
         let sender = tx_context::sender(ctx);
-        let nft = DevNetNFT {
+        let nft = BaseNFT {
             id: object::new(ctx),
             name: string::utf8(name),
             description: string::utf8(description),
@@ -82,14 +81,14 @@ module assetdb::assetdb {
 
     /// Transfer `nft` to `recipient`
     public fun transfer(
-        nft: DevNetNFT, recipient: address, _: &mut TxContext
+        nft: BaseNFT, recipient: address, _: &mut TxContext
     ) {
         transfer::public_transfer(nft, recipient)
     }
 
     /// Update the `description` of `nft` to `new_description`
     public fun update_description(
-        nft: &mut DevNetNFT,
+        nft: &mut BaseNFT,
         new_description: vector<u8>,
         _: &mut TxContext
     ) {
@@ -97,8 +96,8 @@ module assetdb::assetdb {
     }
 
     /// Permanently delete `nft`
-    public fun burn(nft: DevNetNFT, _: &mut TxContext) {
-        let DevNetNFT { id, name: _, description: _, url: _ } = nft;
+    public fun burn(nft: BaseNFT, _: &mut TxContext) {
+        let BaseNFT { id, name: _, description: _, url: _ } = nft;
         object::delete(id)
     }
 
@@ -130,5 +129,3 @@ module assetdb::assetdb {
 
 
 }
-
-

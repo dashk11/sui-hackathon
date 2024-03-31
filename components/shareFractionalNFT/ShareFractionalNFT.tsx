@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TransactionBlock } from "@mysten/sui.js/transactions";
 import { useSignAndExecuteTransactionBlock } from "@mysten/dapp-kit";
-import { useNetworkVariable } from "./networkConfig";
+import { useNetworkVariable } from "../../src/networkConfig";
 
 export function ShareFractionalNFT({ onShared }) {
   const [originalNftId, setOriginalNftId] = useState('');

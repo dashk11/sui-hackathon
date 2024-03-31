@@ -1,72 +1,22 @@
-import { ConnectButton, useCurrentAccount } from "@mysten/dapp-kit";
-import { isValidSuiObjectId } from "@mysten/sui.js/utils";
-import { Box, Container, Flex, Heading } from "@radix-ui/themes";
-import { useState } from "react";
-import { Counter } from "./Counter";
-import { CreateCounter } from "./CreateCounter";
-import { CreateAsset } from "./CreateAsset";
-import { ShareFractionalNFT } from "./ShareFractionalNFT";
-
+import { CreateAsset } from "../components/createAsset/createAsset";
+import { LandingPage } from "../components/landingPage/landingPage";
+import { ShareFractionalNFT } from "../components/shareFractionalNFT/shareFractionalNFT";
+import { DataConsumer } from "../components/dataConsumer/dataConsumer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+ 
 
 function App() {
-  const currentAccount = useCurrentAccount();
-  const [counterId, setCounter] = useState(() => {
-    const hash = window.location.hash.slice(1);
-    return isValidSuiObjectId(hash) ? hash : null;
-  });
 
   return (
     <>
-      <Flex
-        position="sticky"
-        px="4"
-        py="2"
-        justify="between"
-        style={{
-          borderBottom: "1px solid var(--gray-a2)",
-        }}
-      >
-        <Box>
-          <Heading>dApp Starter Template</Heading>
-        </Box>
-
-        <Box>
-          <ConnectButton />
-        </Box>
-      </Flex>
-      <Container>
-        <Container
-          mt="5"
-          pt="2"
-          px="4"
-          style={{ background: "var(--gray-a2)", minHeight: 500 }}
-        >
-          
-          
-
-          {currentAccount ?
-            (
-              <>
-                <h1>create nft</h1>
-                <CreateAsset
-                    onMinted={(id) => {
-                    window.location.hash = id;
-                    setCounter(id);
-                }}/>
-                
-                <h1>Share nft</h1>
-                <ShareFractionalNFT/>
-              </>
-              
-              
-              
-            
-            )
-           : (
-            <Heading>Please connect your wallet</Heading>
-          )}
-        </Container>
-      </Container>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/artist" element={<CreateAsset />} />
+          <Route path="/consumer" element={<DataConsumer />} />
+          <Route path="/consumer1" element={<ShareFractionalNFT />} />
+        </Routes>
+      </Router>
     </>
   );
 }
