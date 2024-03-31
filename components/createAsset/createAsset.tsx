@@ -18,14 +18,29 @@ const fileTypes = ["JPG", "PNG", "GIF"];
 
 
 const backgroundStyle = {
-    width: '100vw',
-    height: '100vh',
-    // backgroundImage: 'url("https://images.unsplash.com/photo-1595364397663-fca4f075d796?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
-    backgroundColor: "#051329",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+  width: '100vw',
+  height: '100vh',
+  display: 'flex', // Use flexbox to center children
+  flexDirection: 'column', // Stack children vertically
+  alignItems: 'center', // Center children horizontally
+  justifyContent: 'center', // Center children vertically
+  backgroundColor: "#051329",
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  padding: "2rem"
+};
 
-  };
+// Add this style for the form container
+const formContainerStyle = {
+  padding: "1rem",
+  width: '80vw',
+  maxWidth: '500px', // Set a max width if you want to limit how wide the form can go
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "1rem", // Spacing between children
+};
 
 export function CreateAsset({ onMinted }) {
 
@@ -254,11 +269,12 @@ export function CreateAsset({ onMinted }) {
         currentAccount ? 
         (
         <>
-          <div style = { backgroundStyle } >
           <NavBar />
+          <div style = { backgroundStyle } >
+          
 
           
-          <div style={{ padding: "1rem", width: '80vw', height: "30vh", gap: "1rem", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+          <div style={formContainerStyle}>
             <div>
               <FileUploader handleChange={handleFileChange} name="file" types={fileTypes} />
             </div>

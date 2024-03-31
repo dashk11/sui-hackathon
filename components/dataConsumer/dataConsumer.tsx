@@ -6,6 +6,7 @@ import { NavBar } from "../navBar/navBar";
 import { TransactionBlock } from "@mysten/sui.js/transactions";
 import { useSignAndExecuteTransactionBlock, useSuiClient } from "@mysten/dapp-kit";
 import { useNetworkVariable } from "../../src/networkConfig";
+import CallSplitIcon from '@mui/icons-material/CallSplit';
 
 
 const downloadImage = (url, name) => {
@@ -84,10 +85,9 @@ const shareFractionalNFT = async (rowData) => {
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'name', headerName: 'Name', width: 150 },
     { field: 'description', headerName: 'Media type', width: 200 },
-    { field: 'created_by', headerName: 'Created By', width: 150 },
-    { field: 'creative_url', headerName: 'Creative URL', width: 200, renderCell: (params) => <a href={params.value} target="_blank" rel="noopener noreferrer">View</a> },
+ 
     { field: 'is_active', headerName: 'Is Active', width: 130 },
-    { field: 'account_id', headerName: 'Account ID', width: 200 },
+    { field: 'account_id', headerName: 'Owner ID', width: 200 },
     { field: 'nft_id', headerName: 'NFT ID', width: 200 },
     { field: 'created_on', headerName: 'Created On', width: 150 },
     { field: 'modified_on', headerName: 'Modified On', width: 150 },
@@ -98,9 +98,10 @@ const shareFractionalNFT = async (rowData) => {
       renderCell: (params) => (
         <button
           onClick={() => handleShareFractionalNFT(params.row)}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', color: "black", width: "100%" }}
         >
-          Share Ownership
+          <CallSplitIcon/> Share
+          
         </button>
       ),
     },

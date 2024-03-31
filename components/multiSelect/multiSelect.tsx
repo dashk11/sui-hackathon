@@ -41,6 +41,7 @@ export function MultiSelect({chipData, setChipData}) {
           listStyle: 'none',
           p: 0.5,
           m: 0,
+          minWidth: 270,
           maxWidth: 300, // Adjust this value as needed to make MultiSelect smaller
           margin: 'auto', // Center the MultiSelect
         }}
