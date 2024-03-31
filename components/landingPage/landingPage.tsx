@@ -6,6 +6,8 @@ import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
 import { CreateAsset } from "../createAsset/createAsset";
 import { ShareFractionalNFT } from "../shareFractionalNFT/shareFractionalNFT";
 import { ReactiveBanner } from "../reactiveBanner/reactiveBanner";
+import Button from '@mui/material/Button';
+
 
 import "./styles.css";
 
@@ -120,6 +122,22 @@ export function LandingPageParallax() {
           }}
           onClick={() => parallax.current.scrollTo(0)}>
           <img src={url('clients-main')} style={{ width: '40%' }} />
+
+          <div style={{ position: 'absolute', bottom: '200px', left: '50%', transform: 'translateX(-50%)' }}>
+            
+            <Button variant="contained" color="success" onClick={() => window.location.href = 'http://localhost:5173/artist'} >
+                 Upload Data
+            </Button>
+
+            <Button variant="contained" onClick={() => window.location.href = 'http://localhost:5173/consumer'}
+              style={{ marginLeft: '30px' }}
+            >
+                Source Data
+            </Button>
+
+
+
+          </div>
         </ParallaxLayer>
       </Parallax>
     </div>

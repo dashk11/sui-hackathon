@@ -1,18 +1,20 @@
-# Sui dApp Starter Template
+# ByteGuard
 
-This dApp was created using `@mysten/create-dapp` that sets up a basic React
-Client dApp using the following tools:
+![ByteGuard Logo](https://sui-nft-assets.s3.us-east-2.amazonaws.com/full-logo-3.png "ByteGuard Logo")
 
-- [React](https://react.dev/) as the UI framework
-- [TypeScript](https://www.typescriptlang.org/) for type checking
-- [Vite](https://vitejs.dev/) for build tooling
-- [Radix UI](https://www.radix-ui.com/) for pre-built UI components
-- [ESLint](https://eslint.org/) for linting
-- [`@mysten/dapp-kit`](https://sdk.mystenlabs.com/dapp-kit) for connecting to
-  wallets and loading data
-- [pnpm](https://pnpm.io/) for package management
+ByteGuard is a decentralized data management system designed to protect digital creators' intellectual property. Built on the SUI blockchain, it enables users to mint their data as NFTs with embedded smart contracts, ensuring transparency and fair compensation for data usage.
 
-## Deploying your Move code
+## Inspiration
+
+Our motivation is to empower creators in the digital space by providing them with control over their content, ensuring their creative rights are respected and rewarded in the age of AI and machine learning.
+
+## Features
+
+- **Data Ownership:** Upload and mint your data as NFTs on the SUI blockchain.
+- **Smart Contract Integration:** Define the terms of data usage through smart contracts.
+- **Real-Time Alerts:** Get immediate notifications when your data is accessed or used.
+- **Ethical Data Sourcing:** Organizations can access data transparently and ethically.
+
 
 ### Install Sui cli
 

@@ -28,7 +28,7 @@ export function ReactiveBanner() {
     set([])
     ref.current.push(setTimeout(() => set(['Your', 'Data', 'Matters']), 2000))
     ref.current.push(setTimeout(() => set(['Data', 'Secured']), 5000))
-    ref.current.push(setTimeout(() => set(['Get', 'Compensated']), 8000))
+    ref.current.push(setTimeout(() => set(['Data', 'Matters']), 8000))
   }, [])
 
   useEffect(() => {
